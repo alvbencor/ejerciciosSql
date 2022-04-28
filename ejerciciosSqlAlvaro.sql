@@ -140,11 +140,12 @@ from orders
 where shipcountry = 'France'
 and year(orderdate) = 1998;
 
-select 
-
+select ShippedDate, RequiredDate, datediff(RequiredDate,ShippedDate) from Orders where ShipCountry like 'France%' and OrderDate like '1998%';
 -- Aumenta el precio de todos los productos un 0.4%
 select productname, 1.04*unitprice
 from products;
+
+select ProductID, ProductName,UnitPrice, Round((UnitPrice*1.04),2) as 'Precio. incrementado'from Products;
 
 -- Calcula la media del precio de los productos enviados desde Rio de Janeiro
 select productname, avg(p.unitprice)
@@ -153,10 +154,14 @@ where p.productid = od.productid
 and od.orderid = o.orderid
 and shipcity = 'Rio de Janeiro';
 
+select o.ShipCity, round(avg(p.UnitPrice),2) from Products p, OrderDetails od, Orders o where p.ProductID = od.ProductID and od.OrderID = o.OrderID and shipcity = 'Rio de Janeiro' ;
+
 -- Aumenta un 20% el precio de todos los productos que tengan un precio unitario inferior a 10.
 select productname, unitprice, 1.2 * unitprice as precio_aumentado
 from products
 where unitprice < 10;
+
+select * , round((1.2 * UnitPrice),2) as 'nuevo precio' from Products where UnitPrice < 10;
 
 
 
