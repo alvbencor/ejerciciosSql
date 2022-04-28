@@ -1,7 +1,5 @@
 use northwind;
 
-
-
 -- Los pedidos enviados a cada ciudad desde Brasil.
 
 -- Los clientes de Barcelona por barrios.
@@ -31,6 +29,13 @@ use northwind;
 -- Calcula la media del precio de los productos enviados desde Rio de Janeiro
 
 -- Aumenta un 20% el precio de todos los productos que tengan un precio unitario inferior a 10.
+
+
+-- Nombre de cliente de todos los clientes que han sido atendidos por empleados con una A en su apellido.
+
+-- El nombre de la compañia del cliente, nombre del contacto, código de orden de la compra, decha de la orden de la compra, código de producto y nombre de la compañía proveedora siempre que estas comiencen de por la letra a hasta la letra g. Tienen que haber pedido entre 23 y 187 productos.
+
+-- Número de órdenes que se han realizado por años y meses ordenado por año y por mes. 
 
 
 
