@@ -18,16 +18,39 @@ Select *, (Quantity / 5) as  "Unidades a repartir" from orderdetails where Order
 Select o.CustomerID,  count(od.ProductID) from orders o, orderdetails od group by o.CustomerID;
 
 -- 5.Muestra la cantidad de empleados que tiene cada territorio
+
+select count(EmployeeID) as "numero de empleados", TerritoryID from employeeterritories group by TerritoryID;
 -- 6.Una tabla con la cantidad de territorios que hay por region
 
+select count(TerritoryID), RegionID from territories group by RegionID;
+
 -- 7. El ejercicio 1 pero solo se mostraran los productos que tengan un coste superior a 10
+
+select ProductName, UnitPrice, (UnitPrice*0.9) as coste  from products having (UnitPrice*0.9) > 10;
+
 -- 8. el ejercicio4 pero , como queremos recompensar a los clientes con un vip, solo necesitamos los que han pedido mas de 80 productos
+
+Select o.CustomerID,  count(od.ProductID) from orders o, orderdetails od  group by o.CustomerID having count(od.ProductID)>80;
+
 -- 9. El nombre de los proveedores que suministran mas de 3 productos.
 
+Select s.CompanyName, count(p.ProductID) from suppliers s, products p  where s.SupplierID = p.SupplierID group by s.CompanyName having count(p.ProductID)>3;
+
 -- 10. los nombres de los productos en mayusculas
+
+select upper(ProductName) from products;
 -- 11. los dos primeros numeros de las id de los productos
+select ProductName, left(ProductID,2) from products;
 -- 12. los nombres de los territorios en minusculas
 
+select lower(TerritoryDescription) from territories;
+
 -- 13. sumale 5 dias a las fechas de llegada de los pedidos para pedir valoracion al cliente sobre el producto
+
+select OrderID, dateadd(Day,5,RequiredDate),RequiredDate from orders;
+
 -- 14. muestra el dia que se envió el pedido, el dia que llegó y cuanto tiempo transcurrió entre esas dos fechas
+
+select ShippedDate, RequiredDate, datediff(day, ShippedDate, RequiredDate );
+
 -- 15. una tabla con los años que tenian los empleados cuando les contrataron y que edad tienen ahora
