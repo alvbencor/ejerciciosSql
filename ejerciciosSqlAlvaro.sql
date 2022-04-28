@@ -140,6 +140,8 @@ from orders
 where shipcountry = 'France'
 and year(orderdate) = 1998;
 
+select 
+
 -- Aumenta el precio de todos los productos un 0.4%
 select productname, 1.04*unitprice
 from products;
